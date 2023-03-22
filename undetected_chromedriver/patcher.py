@@ -7,6 +7,7 @@ import logging
 import os
 import random
 import re
+import secrets
 import string
 import sys
 import time
@@ -60,7 +61,7 @@ class Patcher(object):
         """
         self.force = force
         self._custom_exe_path = False
-        prefix = "undetected"
+        prefix = secrets.token_hex(8)
 
         if not os.path.exists(self.data_path):
             os.makedirs(self.data_path, exist_ok=True)
